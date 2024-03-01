@@ -8,7 +8,7 @@ function primerosVeinte(){
         suma+=i;
     }
     return suma;
-} //()
+}// ()
 
 //------------------------------
 // main()
