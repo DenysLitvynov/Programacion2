@@ -22,17 +22,18 @@ function filtrar(array,condicion){
 //--------------------------------------------
 //--------------------------------------------
 
-// Prueba automática para la función 
+// Prueba automática para la función filtrar()
 function probarFiltrar(){
     const array = ["Elixir","Sintaxis","Hola","Cinco","Matrix"];
     const res = filtrar(array, function(arr,i){
-        if(arr[i].includes(x)){
+        if(arr[i].includes("x")){
             return true;
         }
         return false;
     });
     const arrayPrueba = ["Elixir","Sintaxis","Matrix"];
     for(let i = 0; i<res.length; i++){
+        //console.log(res[i], " ", arrayPrueba[i]);
         if(res[i]!=arrayPrueba[i]){
             console.log("Esta mal");
         }
