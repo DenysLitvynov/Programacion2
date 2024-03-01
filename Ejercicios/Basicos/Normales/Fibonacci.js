@@ -10,19 +10,23 @@ function fibonacci(num){
         res=num1+num2;
         num1=num2;
         num2=res;
-        console.log(res);
+        //console.log(res);
     }
     return res;
 } //()
+
+// prueba automática para la función
+function probarFibonacci(){
+    if(fibonacci(5)!=3){
+        console.log("Esta mal")
+    }
+}
 
 //------------------------------
 // main()
 //------------------------------
 
-// prueba automática
-if(fibonacci(5)!=3){
-    console.log("Esta mal")
-}
+probarFibonacci();
 
 //------------------------------
 //------------------------------

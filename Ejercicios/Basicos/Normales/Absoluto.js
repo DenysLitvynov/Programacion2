@@ -9,6 +9,12 @@ function absoluto(num){
     return num;
 } //()
 
+// prueba automatica para la func absoluto()
+function probarAbsoluto(){
+    if(absoluto(-5)!=5){
+        console.log("Esta mal");
+    }
+}
 
 //--------------------------------------------------
 //--------------------------------------------------
@@ -24,20 +30,19 @@ function absolutosIguales(num1,num2){
     return false;
 } //()
 
+// prueba automatica para la func absolutosIguales()
+function probarAbsolutosIguales(){
+    if(absolutosIguales(-5,5)!=true){
+        console.log("Esta mal");
+    }
+}
 
 //--------------------------------------------------
 // main()
 //--------------------------------------------------
 
-// prueba automatica para la func absoluto()
-if(absoluto(-5)!=5){
-    console.log("Esta mal");
-}
-
-// prueba automatica para la func absolutosIguales()
-if(absolutosIguales(-5,5)!=true){
-    console.log("Esta mal");
-}
+probarAbsoluto();
+probarAbsolutosIguales();
 
 //--------------------------------------------------
 //--------------------------------------------------

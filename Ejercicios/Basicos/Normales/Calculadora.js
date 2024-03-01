@@ -23,26 +23,30 @@ function calculadora(num1,num2,num3){
     return res;
 } //()
 
+// pruebas automáticas para la función calculadora()
+function probarCalculadora(){
+    if(calculadora(4,2,1)!=6){
+        console.log("Esta mal +");
+    }
+    
+    if(calculadora(4,2,2)!=2){
+        console.log("Esta mal -");
+    }
+    
+    if(calculadora(4,2,3)!=8){
+        console.log("Esta mal *");
+    }
+    
+    if(calculadora(4,2,4)!=2){
+        console.log("Esta mal /");
+    }
+}
+
 //-----------------------------------
 // main()
 //-----------------------------------
 
-// pruebas automáticas
-if(calculadora(4,2,1)!=6){
-    console.log("Esta mal");
-}
-
-if(calculadora(4,2,2)!=2){
-    console.log("Esta mal");
-}
-
-if(calculadora(4,2,3)!=8){
-    console.log("Esta mal");
-}
-
-if(calculadora(4,2,4)!=2){
-    console.log("Esta mal");
-}
+probarCalculadora();
 
 //-----------------------------------
 //-----------------------------------

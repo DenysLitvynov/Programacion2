@@ -6,7 +6,7 @@ function primerosVeinte(){
     let suma=0;
     for(let i=1;i<=20;i++){
         suma+=i;
-    }
+    }// for
     return suma;
 }// ()
 

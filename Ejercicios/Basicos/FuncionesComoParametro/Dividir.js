@@ -6,10 +6,10 @@ function dividir(dividendo,divisor,callback){
     if ( divisor == 0 ) {
         callback( "division por 0", null)
         return
-        }
-        // else
-        var resultado = dividendo/divisor
-        callback( null, resultado )
+    }
+    // else
+    var resultado = dividendo/divisor
+    callback( null, resultado )
 } // ()
 
 //------------------------------
@@ -24,7 +24,6 @@ dividir( 7, 0, function (error, resultado) {
 	}
 	console.log( " el resulado es: " + resultado )
 }) //()
-
 
 //------------------------------
 //------------------------------

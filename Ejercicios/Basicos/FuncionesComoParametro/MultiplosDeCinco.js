@@ -5,7 +5,7 @@
 function imprimirMultiplos(callback){
     for(let i=5;i<105;i++){
         callback(i);
-    }
+    } // for
 } //()
 
 //------------------------------

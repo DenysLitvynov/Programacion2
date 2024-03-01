@@ -7,8 +7,8 @@ function imprimirMultiplos(callback){
     while(i<=105){
         callback(i);
         i++;
-    } // while
-} //()
+    }// while
+}// ()
 
 //---------------------------------
 // main()

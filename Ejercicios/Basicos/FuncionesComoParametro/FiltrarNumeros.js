@@ -12,21 +12,25 @@ function filtrar( n, cumple ) {
 	return res
 } // ()
 
+// prueba automática para la función filtrarNumeros
+function probarFiltrar(){
+	var res = filtrar( 10, function(e) {
+		if (e%2==0) {
+			return true
+		}
+		return false
+	})
+	
+	if(res!=30){
+		console.log("Esta mal")
+	}
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-// prueba automática
-var res = filtrar( 10, function(e) {
-	if (e%2==0) {
-		return true
-	}
-	return false
-})
-
-if(res!=30){
-    console.log("Esta mal")
-}
+probarFiltrar();
 
 //---------------------------------
 //---------------------------------

@@ -11,23 +11,26 @@ function productorio(num,callback){
     }
 } //()
 
+// prueba automática para la función productorio()
+function probarProductorio(){
+    var result = productorio(4,function(num,e){
+        e = 1;
+        for (var i = 1; i <= num; i++) {
+            e *= i;
+        }
+        return e;
+    })
+    // prueba automática
+    if(result!=24){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-var result = productorio(4,function(num,e){
-    e = 1;
-    var i=1;
-    while(i<=num){
-        e *= i;
-        i++;
-    }
-    return e;
-})
-// prueba automática
-if(result!=24){
-    console.log("Esta mal");
-}
+probarProductorio();
 
 //---------------------------------
 //---------------------------------

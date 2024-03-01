@@ -11,14 +11,18 @@ function factorial(num){
     return res;
 } //()
 
+// prueba automática para la función
+function probarFactorial(){
+    if(factorial(4)!=24){
+        console.log("Esta mal");
+    }
+}
+
 //---------------------------------
 // main()
 //---------------------------------
 
-// prueba automática
-if(factorial(4)!=24){
-    console.log("Esta mal");
-}
+probarFactorial();
 
 //---------------------------------
 //---------------------------------

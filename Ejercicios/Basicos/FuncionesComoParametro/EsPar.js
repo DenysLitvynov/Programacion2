@@ -9,25 +9,24 @@ function esPar(num,condicion){
     return false;
 }//()
 
-//
-// condicion para utilizar un callback
-//
-function condicion(num){
-    if(num%2===0){
-        return true;
-    }
-    return false;
-}//()
+// prueba automática para la función esPar()
+function probarEsPar(){
+    var res = esPar(2,function(num){
+        if(num%2===0){
+            return true;
+        }
+        return false;
+    });
+    if(res!=true){
+        console.log("Esta mal");
+    }//()
+}
 
 //-------------------------------------
 // main()
 //-------------------------------------
 
-var res = esPar(2,condicion);
-// prueba automática
-if(res!=true){
-    console.log("Esta mal");
-}//()
+probarEsPar();
 
 //-------------------------------------
 //-------------------------------------

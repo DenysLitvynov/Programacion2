@@ -9,26 +9,30 @@ function esBisiesto(anyo,condicion1,condicion2){
     return bisiesto;
 }//()
 
+// prueba automática para la función
+function probarEsBisiesto(){
+    var res = esBisiesto(2024,function(e,b){
+        if(e%4!=0){
+            b=false;
+        }
+        return b;
+    },function(o,b){
+        if(o%100==0 && o%400!=0){
+            b=false;
+        }
+        return b;
+    })
+    
+    if(res!=true){
+        console.log("Esta mal");
+    }
+}
+
 //-------------------------------------------
 // main()
 //-------------------------------------------
 
-// prueba automática
-var res = esBisiesto(2024,function(e,b){
-    if(e%4!=0){
-        b=false;
-    }
-    return b;
-},function(o,b){
-    if(o%100==0 && o%400!=0){
-        b=false;
-    }
-    return b;
-})
-
-if(res!=true){
-    console.log("Esta mal");
-}
+probarEsBisiesto();
 
 //-------------------------------------------
 //-------------------------------------------

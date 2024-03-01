@@ -4,7 +4,7 @@
 //
 function esTriangular(num){
     var res = 0;
-    for(var i=1;i<=num;i++){
+    for(let i=1;i<=num;i++){
         res+=i;
         if(res==num){
             return true;
@@ -13,16 +13,19 @@ function esTriangular(num){
     return false;
 }//()
 
+// Prueba automática para la función
+function probarEsTriangular(){
+    var res = esTriangular(10);
+    if(res!=true){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-// Llamada a la función
-var res = esTriangular(10);
-// Prueba automática para la función
-if(res!=true){
-    console.log("Esta mal");
-}
+probarEsTriangular();
 
 //------------------------------
 //------------------------------

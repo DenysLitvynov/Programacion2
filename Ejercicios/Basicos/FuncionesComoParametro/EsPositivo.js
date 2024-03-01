@@ -9,23 +9,21 @@ function esPositivo(num, condicion){
     return false;
 }//()
 
-//
-// función que deduce si un número es mayor o menor que 0
-// R -> esMayorQueCero() -> V/F
-//
-function esMayorQueCero(num){
-    return num>=0;
-}//()
+// prueba automática para la función esPositivo()
+function probarEsPositivo(){
+    var res = esPositivo(-5,function(num){
+        return num>=0;
+    });
+    if(res!=false){
+        console.log("Esta mal")
+    }
+}
   
 //-----------------------------------------------
 // main()
 //-----------------------------------------------
   
-var res = esPositivo(-5,esMayorQueCero);
-// prueba automática
-if(res!=false){
-    console.log("Esta mal")
-}
+probarEsPositivo();
 
 //-------------------------------------
 //-------------------------------------

@@ -6,15 +6,19 @@ function calcularAreaTriangulo(base,altura){
     return base*altura;
 } //()
 
+// prueba automática para la función
+function probarCalcularArea(){
+    var res = calcularAreaTriangulo(4,4);
+    if(res!=16){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-var res = calcularAreaTriangulo(4,4);
-// prueba automática
-if(res!=16){
-    console.log("Esta mal");
-}
+probarCalcularArea();
 
 //------------------------------
 //------------------------------

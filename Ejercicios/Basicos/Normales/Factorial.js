@@ -3,21 +3,25 @@
 // R -> factorial() -> R
 //
 function factorial(num){
-    res=1;
-    for(var i=1;i<=num;i++){
+    var res=1;
+    for(let i=1;i<=num;i++){
         res*=i;
     }
     return res;
 } //()
 
+// prueba automática para la función
+function probarFactorial(){
+    if(factorial(4)!=24){
+        console.log("Esta mal");
+    }
+}
+
 //--------------------------
 // main()
 //--------------------------
 
-// prueba automática
-if(factorial(4)!=24){
-    console.log("Esta mal");
-}
+probarFactorial();
 
 //--------------------------
 //--------------------------

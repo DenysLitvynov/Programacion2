@@ -7,7 +7,7 @@ function primerosVeinte(){
     while(i<=20){
         suma+=i;
         i++;
-    }
+    } // while
     return suma;
 }//()
 

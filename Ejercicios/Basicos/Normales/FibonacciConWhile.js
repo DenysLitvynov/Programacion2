@@ -16,14 +16,18 @@ function fibonacci(num){
     return res;
 } //()
 
+// prueba automática para la función
+function probarFibonacci(){
+    if(fibonacci(5)!=3){
+        console.log("Esta mal")
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-// prueba automática
-if(fibonacci(5)!=3){
-    console.log("Esta mal")
-}
+probarFibonacci();
 
 //---------------------------------
 //---------------------------------

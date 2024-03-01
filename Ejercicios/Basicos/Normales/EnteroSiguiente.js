@@ -6,14 +6,18 @@ function enteroSiguiente(num){
     return num+1;
 } //()
 
+// prueba automática para la función
+function probarEnteroSiguiente(){
+    if(enteroSiguiente(5)!=6){
+        console.log("Esta mal");
+    }
+}
+
 //-------------------------------------
 // main()
 //-------------------------------------
 
-// prueba automática
-if(enteroSiguiente(5)!=6){
-    console.log("Esta mal");
-}
+probarEnteroSiguiente();
 
 //-------------------------------------
 //-------------------------------------

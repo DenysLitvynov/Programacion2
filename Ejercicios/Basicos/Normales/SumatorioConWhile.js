@@ -11,6 +11,13 @@ function sumatorio(num){
     return res;
 } //()
 
+// prueba automática para sumatorio()
+function probarSumatorio(){
+    if(sumatorio(3)!=6){
+        console.log("Esta mal con bucle");
+    }
+}//()
+
 //---------------------------------
 //---------------------------------
 
@@ -27,19 +34,19 @@ function sumatorioPares(num){
     return res;
 } //()
 
+// prueba automática para sumatorioPares()
+function probarSumatorioPares(){
+    if(sumatorioPares(6)!=12){
+        console.log("Esta mal con bucle");
+    }
+}//()
+
 //---------------------------------
 // main()
 //---------------------------------
 
-// prueba automática para sumatorio()
-if(sumatorio(3)!=6){
-    console.log("Esta mal ");
-}
-
-// prueba automática para sumatorioPares()
-if(sumatorioPares(6)!=12){
-    console.log("Esta mal pares");
-}
+probarSumatorio();
+probarSumatorioPares();
 
 //---------------------------------
 //---------------------------------
