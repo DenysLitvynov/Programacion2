@@ -19,12 +19,12 @@ function aPositivo(array,transformar){
 }// ()
 
 // Prueba automática para la función
-function probarMapear(){
+function probarAPositivo(){
     const array = [-1,-2,-3,-4,-5];
     const res = aPositivo(array, function(arr,i){
         return arr[i]*-1;
     });
-    const arrayPrueba = [13,2,3,4,5];
+    const arrayPrueba = [1,2,3,4,5];
     for(let i = 0; i<res.length; i++){
         //console.log(res[i], " ", arrayPrueba[i]);
         if(res[i] != arrayPrueba[i]){
@@ -34,15 +34,10 @@ function probarMapear(){
 }// ()
 
 //--------------------------------------------
-//--------------------------------------------
-
-// Prueba automática para la función 
-
-//--------------------------------------------
 // main()
 //--------------------------------------------
 
-
+probarAPositivo();
 
 //--------------------------------------------
 //--------------------------------------------
