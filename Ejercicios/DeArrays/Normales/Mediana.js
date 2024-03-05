@@ -18,17 +18,20 @@ function calcularMediana(array){
     }
 }
 
+// Prueba automática para la función
+function probarCalcularMediana(array){
+    var res = calcularMediana(array);
+    if(res!=3){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-var array = new Array(1,2,3,4,5);
-var res = calcularMediana(array);// Llamada a la función
-
-// Prueba automática para la función
-if(res!=3){
-    console.log("Esta mal");
-}
+var array = [1,2,3,4,5];
+probarCalcularMediana(array);
 
 //------------------------------
 //------------------------------

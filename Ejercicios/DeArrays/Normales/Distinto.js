@@ -19,18 +19,20 @@ function sonDistintas(array1,array2){
     return cas;
 }//()
 
+function probarSonDistintas(arr1,arr2){
+    var res = sonDistintas(array1,array2);// Llamada a la función¡
+    if(res!=-1){
+        console.log("Esta mal");
+    }
+}// ()
+
 //------------------------------
 // main()
 //------------------------------
 
-var array1 = new Array(1,2,3,4,5);
-var array2 = new Array(1,2,3,4,5);
-var res = sonDistintas(array1,array2);// Llamada a la función
-
-// Prueba automática para la función
-if(res!=-1){
-    console.log("Esta mal");
-}
+var array1 = [1,2,3,4,5];
+var array2 = [1,2,3,4,5];
+probarSonDistintas(array1,array2);
 
 //------------------------------
 //------------------------------

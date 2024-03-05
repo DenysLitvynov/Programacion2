@@ -20,17 +20,20 @@ function buscar(array,num){
     return;
 }//()
 
+// prueba automática para la función buscar
+function probarBuscar(array){
+    var res = buscar(array,6);
+    if(res!=5){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
 var array = new Array(1,2,3,4,5,6,7,8,9,10);
-var res = buscar(array,6);// Llamada a la función
-
-// Prueba automática para la función
-if(res!=5){
-    console.log("Esta mal");
-}
+probarBuscar(array);
 
 //------------------------------
 //------------------------------

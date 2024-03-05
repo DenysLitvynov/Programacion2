@@ -20,17 +20,20 @@ function masApariciones(array){
     return num;
 }//()
 
+// prueba automática para la función masApariciones()
+function probarMasApariciones(array){
+    var res = masApariciones(array);
+    if(res!=7){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
-var array = new Array(1,2,2,2,3,4,4,5,5,6,7,7,7,7,8,9,10);
-var res = masApariciones(array);// Llamada a la función
-
-// Prueba automática para la función
-if(res!=7){
-    console.log("Esta mal");
-}
+var array = [1,2,2,2,3,4,4,5,5,6,7,7,7,7,8,9,10];
+probarMasApariciones(array);
 
 //------------------------------
 //------------------------------

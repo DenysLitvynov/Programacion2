@@ -6,7 +6,7 @@
 //
 
 //
-// Lista<T1> (T1->T2) -> mapear() -> Lista<T2>
+// Lista<T1> (T1 ->T2) -> mapear() -> Lista<T2>
 //
 function aPositivo(array,transformar){
     const resultado = [];

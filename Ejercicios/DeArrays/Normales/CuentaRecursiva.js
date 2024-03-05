@@ -10,17 +10,20 @@ function contar(array){
     return 1 + contar(array.slice(1));
 }
 
+// prueba automática para la función contar
+function probarContar(array){
+    var res = contar(array);
+    if(res!=5){
+        console.log("Esta mal");
+    }
+}
+
 //------------------------------
 // main()
 //------------------------------
 
 var array = new Array(1,2,3,4,5);
-var res = contar(array);// Llamada a la función
-
-// Prueba automática para la función
-if(res!=5){
-    console.log("Esta mal");
-}
+probarContar(array);
 
 //------------------------------
 //------------------------------
