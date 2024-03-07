@@ -6,7 +6,7 @@
 
 var fs = require( "fs" ) 
 
-fs.writeFile( "nombre.txt", "juan tu lo que tens que fer es dixar de follarte a gossos", function( err ) {
+fs.writeFile( "nombre.txt", "Denys Litvynov", function( err ) {
     if( err ) {
         console.log( "hubo un problema al escribir en nombre.txt" )
     }

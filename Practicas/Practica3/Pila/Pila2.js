@@ -98,12 +98,12 @@ function probarTamano(Pila){
 // main()
 //--------------------------------------------
 
-const Pila = new Pila();
-probarEstaVacia(Pila);
-probarApilar(Pila);
-probarDesapilar(Pila);
-probarCima(Pila);
-probarTamano(Pila);
+const Pila1 = new Pila();
+probarEstaVacia(Pila1);
+probarApilar(Pila1);
+probarDesapilar(Pila1);
+probarCima(Pila1);
+probarTamano(Pila1);
 
 //--------------------------------------------
 //--------------------------------------------

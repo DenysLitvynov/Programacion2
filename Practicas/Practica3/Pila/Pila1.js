@@ -1,7 +1,7 @@
 //
 // Archivo: Pila1.js
 // Descripción:  Diseña, implementa y prueba un objeto pila (consultar Pila) con operaciones apilar(), desapilar() y cima().
-// Con la sintaxis de un objeto
+// Con la sintaxis de un objeto literal
 // Fecha: 06/03/2024
 // Nombre: Denys Litvynov
 //

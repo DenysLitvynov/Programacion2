@@ -6,7 +6,8 @@
 //
 
 //
-// Definimos un objeto horario que dentro contiene otra lista de objetos, dias de semana que dentro contienen los nombres y las horas
+// Definimos un objeto horario que dentro contiene otra lista de objetos,
+// dias de semana que dentro contienen los nombres y las horas
 //
 var miHorario = {
     lunes : [ 
@@ -31,19 +32,33 @@ var miHorario = {
         {asignatura : "programación", horaInicio : "8:00" },
         {asignatura : "matemáticas", horaInicio : "10:00" },
     ]
-}
-
-//--------------------------------------------
-//--------------------------------------------
+}// Obj
 
 var horario = JSON.stringify(miHorario);
 console.log(horario);
 
 //--------------------------------------------
+//--------------------------------------------
+
+function obtenerHorario(horario, asignatura) {
+    const horarioAsignatura = [];
+    for (const dia in horario) {
+        const asignaturasDia = horario[dia];
+        for (const asignaturaDia of asignaturasDia) {
+            if (asignaturaDia.asignatura === asignatura) {
+                horarioAsignatura.push(`${dia} - ${asignaturaDia.horaInicio}`);
+            }
+        }// for of
+    }// for in
+    return horarioAsignatura;
+}// ()
+
+//--------------------------------------------
 // main()
 //--------------------------------------------
 
-
+const res = obtenerHorario(miHorario, "programación");
+console.log(res);
 
 //--------------------------------------------
 //--------------------------------------------

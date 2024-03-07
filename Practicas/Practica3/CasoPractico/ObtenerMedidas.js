@@ -17,11 +17,8 @@ function medirTemperatura() {
     // Generar un valor aleatorio entre 15 y 20 para la temperatura
     const temperatura = Math.random() * (20 - 15) + 15;
     // Devolver un objeto JSON con la hora y la temperatura
-    return { hora: horaActual, temperatura: temperatura };
+    return { hora: horaActual, temperatura: temperatura.toFixed(2)};
 } // ()
-    
-// Prueba automática para la función 
-
 
 //--------------------------------------------
 //--------------------------------------------
@@ -43,38 +40,23 @@ function tomarMediciones( cuantas, mediciones, callback ) {
         tomarMediciones( cuantas-1, mediciones, callback ) // llamada recursiva hasta que cuantos = 0
     }, 1000 )
 } // ()
-    
-// Prueba automática para la función 
-
 
 //--------------------------------------------
 // main()
 //--------------------------------------------
 
 var medidas = []
-//
-// completar: llamar a tomarMediciones() para que nos devuelva
-// 7 medidas de temperatura y guardar lo que nos devuelve
-// en el ficheor "datos.txt" (habiendo convertido los datos
-// a JSON previamente)
-//
-var resultado = tomarMediciones(7,medidas, function(mediciones){
-    if(medidas.length!=7){
-        console.log("Esta mal")
-    }
+
+tomarMediciones(7, medidas, function(mediciones) {
+    // Almacenar las mediciones en el archivo "datos.txt" en formato JSON
+    var texto = JSON.stringify(mediciones);
+    var fs = require("fs");
+    fs.writeFile("datos.txt", texto, function(err) {
+        if (err) {
+            console.log("hubo un problema al escribir en datos.txt");
+        }
+    });
 });
-var texto = JSON.stringify(resultado);
-
-// Importa el módulo 'fs' (File System) proporcionado por Node.js
-var fs = require( "fs" ) 
-
-// Escribe en el archivo "hola.txt" el contenido "hola mundo"
-fs.writeFile( "datos.txt", texto, function( err ) {
-    // Comprueba si hubo un error al escribir en el archivo
-    if( err ) {
-        console.log( "hubo un problema al escribir en hola.txt" )
-    }
-})
 
 //--------------------------------------------
 //--------------------------------------------
