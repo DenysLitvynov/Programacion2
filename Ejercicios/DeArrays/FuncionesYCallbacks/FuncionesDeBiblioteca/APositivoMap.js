@@ -8,8 +8,8 @@
 //
 // Lista<T1> function() -> aPositivo() -> Lista<T2>
 //
-function aPositivo(array,funcion){
-    return array.map(funcion);
+function aPositivo(array,fnTransformar){
+    return array.map(fnTransformar);
 }// ()
 
 //--------------------------------------------

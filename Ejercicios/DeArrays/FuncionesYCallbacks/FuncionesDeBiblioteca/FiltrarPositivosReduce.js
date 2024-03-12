@@ -8,8 +8,8 @@
 //
 // Lista<T> (T -> V/F) -> filtrar() -> Lista<T>
 //
-function filtrar(array,fnAcomular){
-    return array.reduce(fnAcomular);
+function filtrar(array,fnAcomular,acum){
+    return array.reduce(fnAcomular,acum);
 }
 
 //--------------------------------------------
@@ -17,12 +17,18 @@ function filtrar(array,fnAcomular){
 
 // Prueba automática para la función 
 function probarFiltrar(array){
-    const arrayRes = filtrar(array, function(acom,elem){
+    const arrayRes = filtrar(array, function(acum,elem){
         if(elem>0){
-            acom.push(elem);
+            acum.push(elem);
         }
-        return acom;
-    },[])
+        return acum;
+    },[]);
+    for(let i=0; i<arrayRes.length; i++){
+        //console.log(arrayRes[i]);
+        if(arrayRes[i]<0){
+            console.log("Esta mal")
+        }
+    }// for
 }
 
 //--------------------------------------------

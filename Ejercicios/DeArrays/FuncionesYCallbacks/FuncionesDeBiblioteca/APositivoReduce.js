@@ -8,8 +8,8 @@
 //
 // Lista<T1> function() -> aPositivo() -> Lista<T2>
 //
-function aPositivo(array,fnAcomular,acom){
-    return array.reduce(fnAcomular,acom);
+function aPositivo(array,fnAcomular,acum){
+    return array.reduce(fnAcomular,acum);
 }// ()
 
 //--------------------------------------------
@@ -17,10 +17,12 @@ function aPositivo(array,fnAcomular,acom){
 
 // Prueba automática para la función 
 function probarAPositivo(array){
-    const res = aPositivo(array, function(elem){
-        return acom.push.Math.abs(elem);
+    const arrayRes = aPositivo(array, function(acum,elem){
+        acum.push(Math.abs(elem));
+        return acum;
     },[])
     for(let i=0;i<arrayRes.length;i++){
+        //console.log(arrayRes[i]);
         if(arrayRes[i]<0){
             console.log("Esta mal");
         }
@@ -31,7 +33,8 @@ function probarAPositivo(array){
 // main()
 //--------------------------------------------
 
-probarAPositivo();
+const array = [-1,-2,-3,-4,-5];
+probarAPositivo(array);
 
 //--------------------------------------------
 //--------------------------------------------

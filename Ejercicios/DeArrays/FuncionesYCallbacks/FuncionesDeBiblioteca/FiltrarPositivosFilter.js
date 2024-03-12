@@ -18,12 +18,13 @@ function filtrar(array,fnComprobar){
 // Prueba automática para la función 
 function probarFiltrar(array){
     const arrayRes = filtrar(array, function(elem){
-        if(elem>0){
-            return true;
+        if(elem<0){
+            return false;
         }
-        return false;
+        return true;
     });
     for(let i=0; i<arrayRes.length; i++){
+        //console.log(arrayRes[i]);
         if(arrayRes[i]<0){
             console.log("Esta mal")
         }

@@ -9,29 +9,26 @@
 //
 // Lista<T1> (T1->T2) -> substituir() -> Lista<T2>
 //
-function substituir(array,fnAcumular,acum){
-    return array.reduce(fnAcumular);
-}// ()
-
-//--------------------------------------------
-//--------------------------------------------
-
-// Prueba automática para la función
-function probarSubstituir(array,num1,num2,arrayPrueba){
-    const arrayRes = substituir(array,function(acum,n1,n2){
-        if(elem == n1){
-            acum.push(n2);
-        }else{
-            acum.push(elem);
+function substituir(array, num1, num2) {
+    return array.reduce(function(acum, elemento) {
+        if (elemento === num1) {
+            acum.push(num2);
+        } else {
+            acum.push(elemento);
         }
         return acum;
-    },[]);
-    for(let i=0;i<arrayRes.length;i++){
-        console.log(arrayRes[i]);
-        if(arrayRes[i] != arrayPrueba[i]){
+    }, []);
+}
+
+// Prueba automática para la función
+function probarSubstituir(array, num1, num2, arrayPrueba) {
+    const arrayRes = substituir(array, num1, num2);
+    for (let i = 0; i < arrayRes.length; i++) {
+        //console.log(arrayRes[i]);
+        if (arrayRes[i] !== arrayPrueba[i]) {
             console.log("Esta mal");
         }
-    }// for
+    }
 }
 
 //--------------------------------------------

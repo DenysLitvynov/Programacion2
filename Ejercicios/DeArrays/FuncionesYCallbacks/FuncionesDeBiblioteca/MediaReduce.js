@@ -9,8 +9,7 @@
 // Lista<T1> T2 T2,T1->()->T2 -> calcularMedia() -> T2
 //
 function calcularMedia(array,fnAcumular,acum){
-    const suma = array.reduce(fnAcumular,acum);
-    return suma/array.length;
+    return array.reduce(fnAcumular,acum)/array.length;
 }// ()
 
 //--------------------------------------------
@@ -31,7 +30,7 @@ function probarCalcularMedia(array){
 //--------------------------------------------
 
 const array = [1,2,3,4,5];
-probarCalcularMedia();
+probarCalcularMedia(array);
 
 //--------------------------------------------
 //--------------------------------------------
