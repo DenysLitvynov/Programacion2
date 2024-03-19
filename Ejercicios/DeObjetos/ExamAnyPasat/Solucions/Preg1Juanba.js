@@ -37,7 +37,7 @@ function main() {
     // Se crea una lista de prueba y se llama a la funci�n numeroMasRepetido
 
 
-    const listaEjemplo = [1, 2, 3, 1, 2, 3, 1, 2, 3, 2, 2, 9, 9, 9, 9, 9, 9, 9, 5, 5, 5, 5, 5, 5, 5, 5];
+    const listaEjemplo = [1, 2, 3, 1, 2, 3, 1, 2, 3, 2, 2, 9, 9, 9, 9, 9, 9, 9, 5, 3, 3, 3, 3, 3, 3, 3];
 
     const numeroMasRepetidoEnEjemplo = numeroMasRepetido(listaEjemplo);
 

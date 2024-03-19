@@ -5,8 +5,15 @@
 // Nombre: Denys Litvynov
 //
 
+var Juanba = {
+    nom: "Juanba",
+    propiedad: "li agra follarse a gossos"
+}
+
+var juanba = JSON.stringify(Juanba);
+
 var fs = require( "fs" )
-fs.writeFile( "nombre.txt", "juanba se les menja saanseretes", function( err ) {
+fs.writeFile( "nombre.txt", juanba, function( err ) {
     if( err ) {
         console.log( "hubo un problema al escribir en hola.txt" )
     }

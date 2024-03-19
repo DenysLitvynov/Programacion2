@@ -48,6 +48,7 @@ function probarFallasEnCategoria(){
         else{
             //console.log(objetoInJSON)
             const arrayRes = fallasEnCategoria(objetoInJSON, "segunda");
+            console.log(arrayRes);
             const arrayPrueba = [{ falla: "Consertori", ciudad: "Gandia", categoria: "segunda" }];
             if(arrayRes[0].falla != arrayPrueba[0].falla){
                 console.log("Esta mal")

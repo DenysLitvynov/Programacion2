@@ -53,7 +53,7 @@ var medidas = []
 tomarMediciones(7,medidas, function(mediciones){
     var texto = JSON.stringify(mediciones); // convertimos a formato JSON 
     var fs = require("fs");
-    fs.writeLine("datos.txt",texto, function(err){
+    fs.writeFile("datos.txt",texto, function(err){
         if(err){
             console.log("hubo un problema al escribir en datos.txt");
         }

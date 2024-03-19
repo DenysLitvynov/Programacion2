@@ -8,7 +8,7 @@ function buscarElMayor(array){
             acum = elem;
         }
         return acum;
-    },0); // acum representara el numero maximo
+    },0); // acum representara el numero mayor
     return res;
 }
 

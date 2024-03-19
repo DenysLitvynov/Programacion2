@@ -1,6 +1,6 @@
 //
-// Archivo: APositivoMap2.js
-// Descripción: Hacer una función que convierte todos los números de una lista en positivos, utilizando el método de biblioteca .map
+// Archivo: APositivoReduce2.js
+// Descripción: Hacer una función que convierte todos los números de una lista en positivos, utilizando el método de biblioteca .reduce
 // Fecha: 13/03/2024
 // Nombre: Denys Litvynov
 //
@@ -9,9 +9,10 @@
 // Lista<T1> function() -> aPositivo() -> Lista<T2>
 //
 function aPositivo(array){
-    return array.map(function(elem){
-        Math.abs(numero);
-    })
+    return array.reduce(function(acum,elem){
+        acum.push(Math.abs(elem));
+        return acum;
+    },[]);
 }// ()
 
 //--------------------------------------------
@@ -21,11 +22,12 @@ function aPositivo(array){
 function probarAPositivo(array){
     const arrayRes = aPositivo(array);
     for(let i=0;i<arrayRes.length;i++){
+        // console.log(arrayRes[i]);
         if(arrayRes[i]<0){
             console.log("Esta mal");
         }
     }// for
-}
+}// ()
 
 //--------------------------------------------
 // main()

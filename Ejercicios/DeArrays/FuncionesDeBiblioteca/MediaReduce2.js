@@ -19,7 +19,7 @@ function calcularMedia(array){
 
 // Prueba automática para la función 
 function probarCalcularMedia(array){
-    const arrayRes = calcularMedia(array);
+    const media = calcularMedia(array);
     if(media != 3){
         console.log("Esta mal")
     }

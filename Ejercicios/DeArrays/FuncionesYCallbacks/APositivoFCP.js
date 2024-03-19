@@ -11,18 +11,16 @@
 function aPositivo(array,transformar){
     const resultado = [];
     for(let i = 0; i<array.length; i++){
-        if(array[i]<0){
-            resultado[i] = transformar(array,i);
-        }
+        resultado[i] = transformar(array,i);
     }// for
     return resultado;
 }// ()
 
 // Prueba automática para la función
 function probarAPositivo(){
-    const array = [-1,-2,-3,-4,-5];
+    const array = [-1,2,-3,4,-5];
     const res = aPositivo(array, function(arr,i){
-        return arr[i]*-1;
+        return Math.abs(arr[i]);
     });
     const arrayPrueba = [1,2,3,4,5];
     for(let i = 0; i<res.length; i++){

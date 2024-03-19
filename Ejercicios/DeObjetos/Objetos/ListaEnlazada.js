@@ -1,13 +1,12 @@
 //
-// Archivo: SubstituirMap2.js
-// Descripción: Hacer una función donde le pasemos una lista de números enteros y dos números y nos devuelva otra 
-// lista donde se cambien todos las apariciones del primer número por el segundo (manteniendo su posición)
+// Archivo: ListaEnlazada.js
+// Descripción: Diseña, implementa y prueba un objeto listaEnlazada
 // Fecha: 13/03/2024
-// Nombre: Denys Litvynov
+// Nombre: Denys Litvynov 
 //
 
 //
-// Lista<T1> -> substituir() -> Lista<T2>
+// Objeto ListaEnlazada
 //
 
 //--------------------------------------------

@@ -14,6 +14,12 @@ var unaPersona = {
     telefonos : [696234567, 676456123]
 }
 
+console.log(unaPersona);
+
 var texto = JSON.stringify( unaPersona ); // para convertir texto a JSON
 
+console.log(texto);
+
 var juan = JSON.parse( texto ); // para convertir de JSON a texto otra vez, es decir a objeto normal
+
+console.log(juan);

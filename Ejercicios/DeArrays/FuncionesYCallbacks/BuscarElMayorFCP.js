@@ -1,6 +1,6 @@
 //
 // Archivo: BuscarElMayorFCP.js
-// Descripción: acer una función que recorre los elementos de una lista de números reales para encontrar el mayor de ellos
+// Descripción: hacer una función que recorre los elementos de una lista de números reales para encontrar el mayor de ellos
 // Fecha: 04/03/2024
 // Nombre: Denys Litvynov
 //

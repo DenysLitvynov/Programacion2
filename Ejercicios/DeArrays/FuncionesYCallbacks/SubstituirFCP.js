@@ -12,7 +12,7 @@
 function substituir(array,transformar,n1,n2){
     const resultado = [];
     for(let i = 0; i<array.length; i++){
-        resultado[i] = transformar(array,i,n1,n2);
+        resultado[i] = transformar(array[i],n1,n2);
     }// for
     return resultado;
 }// ()
@@ -22,11 +22,11 @@ function substituir(array,transformar,n1,n2){
 
 // Prueba automática para la función
 function probarSubstituir(array,arrayPrueba,n1,n2){
-    const res = substituir(array, function(arr,i,n1,n2){
-        if(arr[i]==n1){ 
-            arr[i]=n2; 
+    const res = substituir(array, function(elem,n1,n2){
+        if(elem==n1){ 
+            elem=n2; 
         } 
-        return arr[i];
+        return elem;
     },n1,n2);
     for(let i = 0; i<res.length; i++){
         //console.log(res[i], " ", arrayPrueba[i]);
