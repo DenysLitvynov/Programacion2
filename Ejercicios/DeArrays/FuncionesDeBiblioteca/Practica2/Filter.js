@@ -10,12 +10,9 @@
 // Lista<Palabras> -> filtrarConX() -> Lista<PalabrasConX>
 //--------------------------------------------
 function filtrarConX(array){
-    const palabraConX = array.filter(function(elem){
-        if(elem.includes('x')){
-            palabraConX.push(elem);
-        }
-        return palabraConX;
-    });
+    return array.filter(function(elem){
+        return elem.includes('x');
+    })
 }// ()
 
 //--------------------------------------------
@@ -25,7 +22,7 @@ function filtrarConX(array){
 function probarFiltrarConX(array,arrayPrueba){
     const resultado = filtrarConX(array);
     for(let elem of resultado){
-        if(elem != arrayPrueba.elem){
+        if(!arrayPrueba.includes(elem)){
             console.log("Esta mal");
             break;
         }

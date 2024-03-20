@@ -7,39 +7,38 @@
 //
 
 //--------------------------------------------
-// nombreFicheroTexto: Texto -> leerJSONComoObjeto() -> objetoRes: JSON{dia: Texto, hora: Texto}
+// nombreFicheroTexto: Texto -> leerFciheroDeTexto() -> objeto: JSON{[{}]}
 //--------------------------------------------
-function leerJSONComoObjeto(nombreFicheroTexto, callback){
+function leerFicheroDeTexto(nombreFicheroTexto, callback){
     var fs = require("fs");
     fs.readFile(nombreFicheroTexto, "utf8", function(err,contenido){
         if(err){
-            callback(null, err)
-        }else{
-            callback(JSON.parse(contenido),null);
+            callback(null, err);
+        } 
+        else {
+            callback(JSON.parse(contenido), null);
         }
-    })
+    });
 }// ()
 
 //--------------------------------------------
-// Horario: JSON{[asignatura: Texto, hora: Texto]} , asignatura: Texto 
-// -> obtenerHorarioAsignatura() -> horarioAsignatura: JSON{dia: Texto, hora: Texto}
+// Horario: JSON{[asignatura: texto , horaDeIncio: texto]}, asignatura: texto -> 
+// obtenerHorarioAsignatura() -> HorarioAsignatura: JSON{[dia: texto, hora: texto]}
 //--------------------------------------------
 function obtenerHorarioAsignatura(horario, asignatura){
     let horarioAsignatura = [];
-    for(let dia of horario){
+    for(let dia in horario){
         let asignaturasDia = horario[dia];
-        let asignaturas = asignaturasDia.filter(function(elem){
+        let validas = asignaturasDia.filter(function(elem){
             if(elem.asignatura === asignatura){
                 return true;
             }
             return false;
         });
-        if(asignaturas.length>0){
-            asignaturas.forEach(function(elem){
-                horarioAsignatura.push({dia: dia, horaDeInicio: elem.horaDeInicio})
-            });
-        }
-    }// for
+        for(let horas of validas){
+            horarioAsignatura.push({dia: dia, horaDeInicio: horas.horaDeInicio})
+        }// for of
+    }// for in
     return horarioAsignatura;
 }// ()
 
@@ -47,23 +46,47 @@ function obtenerHorarioAsignatura(horario, asignatura){
 //--------------------------------------------
 
 // Prueba automática para la función
-function probarObtenerHorarioAsignatura(){
-    leerJSONComoObjeto("Horario.json", function(objetoInJSON,err){
+function probarObtenerHorarioAsignatura(callback){
+    leerFicheroDeTexto("Horario.json", function(ObjetoInJSON, err){
         if(err){
-            console.log("Ha habido un error" + err);
-        }else{
-            const resultado = obtenerHorarioAsignatura(objetoInJSON, "programación");
+            console.log("Ha habut un problema al llegir larchiu" + err);
+        } else {
+            let resultado = obtenerHorarioAsignatura(ObjetoInJSON,"programación");
             console.log(resultado);
+            callback(resultado);
         }
     })
-    return resultado;
+}// ()
+
+//--------------------------------------------
+// nem a asciurer el resultat en un archiu avorer si va 
+//--------------------------------------------
+function escribirObjetoComoJSONenArchivo(nombreFicheroTexto, objeto, callback){
+    const objetoJSON = JSON.stringify(objeto);
+    var fs = require("fs");
+    fs.writeFile(nombreFicheroTexto, objetoJSON, function(err){
+        if(err){
+            callback(err);
+        } else {
+            callback(null);
+        }
+    })
 }// ()
 
 //--------------------------------------------
 // main()
 //--------------------------------------------
 
-probarObtenerHorarioAsignatura();
+probarObtenerHorarioAsignatura(function(resultado){
+    escribirObjetoComoJSONenArchivo("horarioAsignatura.json", resultado, function(err){
+        if(err){
+            console.log("a sorgit un problemeta" + err);
+        }else{
+            console.log("felicidades tio")
+        }
+    })
+});
+
 
 //--------------------------------------------
 //--------------------------------------------

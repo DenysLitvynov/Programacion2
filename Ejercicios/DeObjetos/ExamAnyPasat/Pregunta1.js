@@ -12,13 +12,16 @@
 function encontrarElMasRepetido(arrayEnteros){
     let arrayRepeticiones = arrayEnteros.reduce(function(acum,elem){
         acum[elem] += 1;
+        return acum;
     },[0,0,0,0,0,0,0,0,0,0]);
     let objetoResultado = arrayRepeticiones.reduce(function(acum,elem,index){
         if(acum.rep < elem){
             acum.numero = index;
             acum.rep = elem;
         }
+        return acum;
     },{numero: 0, rep: 0});
+    console.log(objetoResultado);
     return objetoResultado;
 }// ()
 

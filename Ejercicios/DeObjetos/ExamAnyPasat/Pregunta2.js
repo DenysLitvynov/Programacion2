@@ -31,6 +31,7 @@ function fallasEnCategoria(fallas,categoria){
         }   
         return false;
     });
+    console.log(fallasCorrespondientes);
     return fallasCorrespondientes;
 }// ()
 
@@ -44,15 +45,17 @@ function probarFallasEnCategoria(){
             console.log("ostie prim , se mos a liat la coso" + err);
         } else {
             const resultado = fallasEnCategoria(fallas, "segunda");
-            if(resultado.falla !== "Consertori"){
-                console.log("Esta mal 1");
-            } 
-            if(resultado.ciudad !== "Gandia"){
-                console.log("Esta mal 2");
-            }
-            if(resultado.categoria !== "segunda"){
-                console.log("Esta mal 3");
-            }
+            resultado.forEach(function(elem){
+                if(elem.falla !== 'Consertori'){
+                    console.log("Esta mal 1");
+                } 
+                if(elem.ciudad !== 'Gandia'){
+                    console.log("Esta mal 2");
+                }
+                if(elem.categoria !== 'segunda'){
+                    console.log("Esta mal 3");
+                }
+            })
         }
     })
 }// ()
