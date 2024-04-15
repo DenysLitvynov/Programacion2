@@ -1,5 +1,5 @@
 //
-// Archivo: punto.js
+// Archivo: Punto.js
 // Descripción: Diseña y añade un nuevo método a la clase Punto (en el fichero Punto.js) que devuelva un nuevo punto el
 // cuál sea la diferencia de otros dos a y b, siendo nuevo = ((a.x − b.x),(a.y − b.y)). 
 // (Nota: al implementarlo, evidentemente, uno de los puntos será: this.

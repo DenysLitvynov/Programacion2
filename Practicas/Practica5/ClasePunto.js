@@ -38,7 +38,6 @@ class Punto {
         var dy = this.y - otro.y
         return Math.sqrt( (dx*dx) + (dy*dy) )
     }
-
 } // class
 
 // ––––––––––––––––
@@ -49,6 +48,17 @@ var p1 = new Punto( 0, 0 )
 var p2 = new Punto( 3, 4 )
 var d = p1.distancia( p2 )
 console.log( d )
+
+/* 
+En cuanto a las diferencias de la clase Punto entre JS y C++
+principalmente es la forma en la que se implementa el constructor,
+en JS se crea el objeto con la palabra new y el nombre de la clase Punto
+
+También difiere la sintaxis, pero sin grandes cambios
+
+Finalmente, no es necesario definir las propiedades ni si son privadas o públicas
+
+*/
 
 //--------------------------------------------
 //--------------------------------------------

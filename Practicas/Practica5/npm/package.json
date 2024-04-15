@@ -7,10 +7,10 @@
     "repository": "ninguno de momento",
     "license": "ISC",
     "dependencies": {
-    "express": "*"
+        "express": "*"
     },
     "scripts": {
-    "ayuda": "echo ejecuta esto: npm run main",
-    "main": "node main.js"
+        "ayuda": "echo ejecuta esto: npm run main",
+        "main": "node main.js"
     }
 }
