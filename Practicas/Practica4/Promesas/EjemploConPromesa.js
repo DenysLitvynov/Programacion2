@@ -1,5 +1,5 @@
 //
-// Archivo: EjemploPromesas.js
+// Archivo: EjemploConPromesa.js
 // Descripción: Prueba el siguiente código. 
 // Fecha: 07/04/2024
 // Nombre: Denys Litvynov

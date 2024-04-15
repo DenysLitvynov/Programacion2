@@ -44,28 +44,36 @@ function escribirFichero(nombreFichero, contenido){
     })
 }
 
-// Prueba automática para la función 
-
-
 //--------------------------------------------
 //--------------------------------------------
 
 //--------------------------------------------
 // nombreOrigen1: Texto, nombreOrigen2: Texto, nombreOrigen3: Texto -> concatenarFicheros() -> 0 | Error
 //--------------------------------------------
-
-
-// Prueba automática para la función 
-
-
-//--------------------------------------------
-//--------------------------------------------
+async function concatenarFicheros(nombreOrigen1, nombreOrigen2, nombreDestino){
+    try {
+        let contenidoFichero1 = await leerFichero(nombreOrigen1);
+        let contenidoFichero2 = await leerFichero(nombreOrigen2);
+        let contenidoConcatenado = contenidoFichero1 + contenidoFichero2;
+        await escribirFichero(nombreDestino, contenidoConcatenado);
+        console.log("Archivos concatenados y escritos correctamente");
+    } catch (error) {
+        return error;
+    }
+}
 
 //--------------------------------------------
 // main()
 //--------------------------------------------
 
-
+function main(){
+    try {
+        concatenarFicheros("Texto1.txt", "Texto2.txt", "textoConcatenado.txt");
+    } catch (error) {
+        console.log(`Ha ocurrido un error: ${error.message}`);
+    }
+}
+main();
 
 //--------------------------------------------
 //--------------------------------------------

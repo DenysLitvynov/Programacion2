@@ -47,7 +47,9 @@ hacerReserva( "pepe" )
 //
 // Sin embargo, al final, ¿qué vale elAsiento?
 //
-setTimeout( ()=>console.log("elAsiento finalmente es para " + elAsiento), 1000)        
+setTimeout( ()=>console.log("elAsiento finalmente es para " + elAsiento), 1000)  
+
+// El lugar donde ocurre la condición de carrera en este código es en la función hacerReserva. 
 
 //--------------------------------------------
 //--------------------------------------------
