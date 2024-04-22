@@ -20,10 +20,36 @@ function porDos( n ) {
 //--------------------------------------------
 // main()
 //--------------------------------------------
-var p = porDos(3);
 
-p.then(function(a){
-    console.log("el resultado de 2*3 es " + a)
+// declaramos las variables necesarias
+var a
+var b
+var c
+
+// llamamos a la función porDos(3) para obtener el resultado de la multiplicación en forma de promesa
+porDos( 3 ) // pido calcular 2*3 
+
+// sacamos el resultado de la promesa anterior utilizando el metodo .then que ademas devuelve otra promesa nueva
+.then( function(r) { // cuando este...
+    a = r // guardo el resultado
+    return porDos(4) // pido calcular 2*4
+})
+
+// sacamos el resultado de la promesa anterior utilizando el metodo .then que ademas devuelve otra promesa nueva
+.then( function(r) { // cuando este...
+    b = r // guardo el resultado
+    return porDos(5) // pido calcular 2*5
+})
+
+// sacamos el resultado de la promesa anterior utilizando el metodo .then que ademas devuelve otra promesa nueva
+.then( function(r) { // cuando este...
+    c = r // guardo el resultado
+    return (a+b+c) // hago la suma de todo y devuelvo el valor
+})
+
+// sacamos el resultado de la promesa anterior utilizando el metodo .then y lo mostramos por pantalla
+.then( function(total){ // cuando este...
+    console.log( "total = " + total)
 })
 
 //--------------------------------------------

@@ -1,0 +1,1 @@
+[{"hora":"18:05:42","temperatura":"18.36"},{"hora":"18:05:43","temperatura":"17.13"},{"hora":"18:05:44","temperatura":"15.29"},{"hora":"18:05:45","temperatura":"17.72"},{"hora":"18:05:46","temperatura":"16.85"},{"hora":"18:05:47","temperatura":"15.63"},{"hora":"18:05:48","temperatura":"17.14"}]

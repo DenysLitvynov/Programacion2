@@ -12,7 +12,7 @@
 function mapear(array,transformar){
     const resultado = [];
     for(let i = 0; i<array.length; i++){
-        resultado[i] = transformar(array,i);
+        resultado[i] = transformar(array[i]);
     }// for
     return resultado;
 }//()

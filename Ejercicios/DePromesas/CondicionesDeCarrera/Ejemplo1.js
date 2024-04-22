@@ -43,7 +43,11 @@ hacerReserva( "pepe" )
 //
 // Sin embargo, al final, que vale elAsiento ? 
 //
-setTimeout( ()=>console.log("elAsiento finalmente es para" + elAsiento), 1000)
+setTimeout( ()=>console.log("elAsiento finalmente es para " + elAsiento), 1000)
+
+// Finalmente el asiento es para pepe, ya que en el momento que se llama a la función hacerReserva tanto para juan como para pepe,
+// la variable global elAsiento es igual a "nadie" , por tanto en ambos casos se asigna el nombre, pero el que se queda finalmente es pepe
+// ya que el último tiene preferencia sobre el primero 
 
 //--------------------------------------------
 //--------------------------------------------

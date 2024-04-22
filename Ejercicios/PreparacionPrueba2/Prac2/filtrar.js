@@ -31,7 +31,7 @@ function probarFiltrar(array, arrayPrueba){
         return false;
     });
     for(let i = 0; i<res.length; i++){
-        if(array[i] != arrayPrueba[i]){
+        if(res[i] != arrayPrueba[i]){
             console.log("Esta mal")
             break;
         }

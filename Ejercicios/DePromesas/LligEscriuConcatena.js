@@ -66,11 +66,12 @@ async function concatenarFicheros(nombreOrigen1, nombreOrigen2, nombreDestino){
 
 function main(){
     try{
-        concatenarFicheros("Texto1.txt", "Texto2.txt", "textoConcatenado.txt");
+        concatenarFicheros("Textoo1.txt", "Textoo2.txt", "textoConcatenado.txt");
     } catch (error){
         console.log(`Ha ocurrido un error: ${error.message}`);
     }
 }
+main();
 
 //--------------------------------------------
 //--------------------------------------------

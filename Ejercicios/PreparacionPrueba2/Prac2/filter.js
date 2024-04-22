@@ -1,5 +1,5 @@
 //
-// Archivo: filtrar.js
+// Archivo: filter.js
 // Descripción: Implementa la función filtrar(). Pruébala de forma automática 
 // seleccionando de una lista de palabras, aquéllas que contengan la letra ’x’.
 // Fecha: 20/04/2024

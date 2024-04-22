@@ -36,17 +36,19 @@ function leerFichero(nombreFichero, callback){
 // -> calcularTemperaturaMedia() -> media: R
 //--------------------------------------------
 function calcularTemperaturaMedia(datos){
-    let total = datos.reduce(function(acum,elem){
-        return acum += elem.temperatura;
-    }, 0)
-    return total / datos.length;
-}// ()
+    const temperaturaMedia = datos.reduce(function(acum, elem){
+        // Convierte la temperatura a un número decimal antes de sumarla
+        return acum + parseFloat(elem.temperatura);
+    }, 0) / datos.length;
+    return temperaturaMedia.toFixed(2); // Redondea el resultado a 2 decimales
+}
 
 // Prueba automática para la función 
-function probarCalcularTemperaturaMedia(datos, esperado){
+function probarCalcularTemperaturaMedia(datos){
     const resultado = calcularTemperaturaMedia(datos);
-    if(resultado !== esperado){
-        console.log("La función calcularTemperaturaMedia esta mal")
+    console.log("La temperatura media es: " + resultado);
+    if(resultado !== "17.01"){
+        console.log("calcularTemperaturaMedia() esta mal");
     }
 }// ()
 
@@ -54,43 +56,72 @@ function probarCalcularTemperaturaMedia(datos, esperado){
 //--------------------------------------------
 
 //--------------------------------------------
-// funcion para calcular la temperatura maxima
+// objeto: Lista<JSON{ hora: N, temperatura: R } 
+//      -> calcularTemperaturaMaxima() -> 
+// objetoMaxima: JSON{hora: N , temperatura: R}
 //--------------------------------------------
-function calcularTemperaturaMaxima(){
+function calcularTemperaturaMaxima(datos){
+    const temperaturaMaxima = datos.reduce(function(acum,elem){
+        if(acum.temperatura < elem.temperatura){
+            acum.temperatura = elem.temperatura;
+            acum.hora = elem.hora;
+        }
+        return acum;
+    },{hora: ' ', temperatura: -Infinity});
+    return temperaturaMaxima;
+}// ()
 
+// Prueba automática para la función 
+function probarCalcularTemperaturaMaxima(datos){
+    const resultado = calcularTemperaturaMaxima(datos);
+    console.log(resultado);
+    if(resultado.hora !== '18:05:42' || resultado.temperatura !== '18.36'){
+        console.log("calcularTemperaturaMaxima() esta mal")
+    }
+}// ()
+
+//--------------------------------------------
+//--------------------------------------------
+
+//--------------------------------------------
+// objeto: Lista<JSON{ hora: N, temperatura: R } 
+//       -> calcularTemperaturaMinima() -> 
+// objetoMinima: JSON{hora: N , temperatura: R}
+//--------------------------------------------
+function calcularTemperaturaMinima(datos){
+    const temperaturaMinima = datos.reduce(function(acum,elem){
+        if(acum.temperatura > elem.temperatura){
+            acum.temperatura = elem.temperatura;
+            acum.hora = elem.hora;
+        }
+        return acum;
+    },{hora: ' ', temperatura: Infinity});
+    return temperaturaMinima;
 }
 
 // Prueba automática para la función 
-function probarCalcularTemperaturaMaxima(){
-    
-}
-
-//--------------------------------------------
-//--------------------------------------------
-
-//--------------------------------------------
-// funcion para calcular la temperatura maxima
-//--------------------------------------------
-function calcularTemperaturaMinima(){
-
-}
-
-// Prueba automática para la función 
-function probarCalcularTemperaturaMinima(){
-    
+function probarCalcularTemperaturaMinima(datos){
+    const resultado = calcularTemperaturaMinima(datos);
+    console.log(resultado);
+    if(resultado.hora !== '18:05:44' || resultado.temperatura !== '15.29'){
+        console.log("calcularTemperaturaMinima() esta mal")
+    }
 }
 
 //--------------------------------------------
 // main()
 //--------------------------------------------
 
-leerFichero("datos.txt", function(datos, error){
-    if(error){
-        console.log("error")
-    } else {
-        probarCalcularTemperaturaMedia(datos, 17.4);
+leerFichero("datos.txt", function(datos, err){
+    if(err){
+        console.log("Ha habido un error" + err);
+    }else{
+        probarCalcularTemperaturaMedia(datos);
+        probarCalcularTemperaturaMaxima(datos);
+        probarCalcularTemperaturaMinima(datos);
     }
-})
+});
+
 
 //--------------------------------------------
 //--------------------------------------------

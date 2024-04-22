@@ -9,11 +9,11 @@
 // Lista<T1> T2 T2,T1->T2 -> reducir() -> T2
 //--------------------------------------------
 function reducir(array,operacion){
-    let res = 0;
+    let acum = 0;
     for(let i = 0; i<array.length; i++){
-        res = operacion(acum,elem);
+        acum = operacion(acum,array[i]);
     }
-    return res;
+    return acum;
 }//()
 
 //--------------------------------------------

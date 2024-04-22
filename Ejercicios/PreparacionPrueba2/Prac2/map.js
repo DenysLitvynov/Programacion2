@@ -7,29 +7,28 @@
 //
 
 //--------------------------------------------
-// Lista<T1> (T1->T2) -> mapear() -> Lista<T2>
+// Lista<T1> -> mapear() -> Lista<T2>
 //--------------------------------------------
-function mapear(array,transformar){
-    const resultado = [];
-    for(let i = 0; i<array.length; i++){
-        resultado[i] = transformar(array[i]);
-    }// for
-    return resultado;
-}//()
+function mapear(array){
+    const transformado = array.map(function(elem){
+        console.log(elem.length)
+        return elem.length; 
+    })
+    return transformado;
+}// ()
 
 //--------------------------------------------
 //--------------------------------------------
 
 // Prueba automática para la función 
 function probarMapear(array,arrayPrueba){
-    const res = mapear(array, function(elem){
-        return elem.length;
-    });
-    for(let i = 0; i<res.length; i++){
-        if(res[i] != arrayPrueba[i]){
-            console.log("Esta mal");
+    const resultado = mapear(array);
+    for(let i = 0; i < resultado.length; i++){
+        if(resultado[i] != arrayPrueba[i]){
+            console.log("Esta mal")
+            break;
         }
-    }
+    }// for
 }//()
 
 //--------------------------------------------

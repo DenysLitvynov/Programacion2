@@ -41,10 +41,9 @@ function fallasEnCategoria(fallas, categoria){
 function probarFallasEnCategoria(fallas,categoria){
     const resultado = fallasEnCategoria(fallas,categoria);
     for(let falles of resultado){
-        for(let datos in falles){
-            if(datos.categoria !== categoria){
-                console.log("Esta mal")
-            }
+        console.log(falles);
+        if(falles.categoria !== categoria){
+            console.log("Esta mal")
         }
     }
 }//()
@@ -57,7 +56,7 @@ leerFichero("falles.json", function(fallas, err){
     if(err){
         console.log("ha sorgit un error")
     } else {
-        probarFallasEnCategoria(fallas, "segunda");
+        probarFallasEnCategoria(fallas, "primera");
     }
 })
 

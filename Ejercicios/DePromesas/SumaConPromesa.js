@@ -15,10 +15,14 @@ Usa .catch() para manejar cualquier error en la operación.*/
 //--------------------------------------------
 function sumar(a,b){
     var prom = new Promise( function(resolve , reject){
-        setTimeout( function() {
-            resolve(a + b)
-        }, 1000)
-    })
+        if(typeof a !== 'number' || typeof b !== 'number'){
+            reject(new Error ("Los argumentos deben ser números."))
+        } else {
+            setTimeout( function() {
+                resolve(a + b)
+            }, 1000)
+        }
+    });
     return prom;
 } // ()
 
@@ -27,6 +31,14 @@ function sumar(a,b){
 //--------------------------------------------
 
 sumar(2,2)
+    .then(function(resultado){
+        console.log(resultado);
+    })
+    .catch(function(error){
+        console.log(error)
+    })
+
+sumar("2",2)
     .then(function(resultado){
         console.log(resultado);
     })
