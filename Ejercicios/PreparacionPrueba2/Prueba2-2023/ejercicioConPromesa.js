@@ -16,7 +16,7 @@ function leerMediciones(nombreFichero){
             if(err){
                 reject("Hubo un error" + err);
             } else {
-                resolve(contenido);
+                resolve(JSON.parse(contenido));
             }
         })
     })
@@ -98,7 +98,7 @@ function probarUltimaMedidaCadaSensor(mediciones, esperadas){
     const resultado = ultimaMedidaCadaSensor(mediciones);
     console.log(resultado);
     for(let i = 0; i<resultado.length; i++){
-        if(resultado[i].id_sensor !== esperadas[i].id_sensor || resultado[i].medida !== esperadas[i].medida){
+        if(resultado[i].id_sensor !== esperadas[i].id_sensor || resultado[i].cuando !== esperadas[i].cuando){
             console.log("ultimaMedidaCadaSensor() esta mal");
             break;
         }
@@ -112,7 +112,7 @@ function probarUltimaMedidaCadaSensor(mediciones, esperadas){
 // main()
 //--------------------------------------------
 
-function main(){
+async function main(){
     let esperada = [ 'sens1', 'sens2', 'sens3', 'sens4', 'sens5' ];
     let esperadas = [
         {id_sensor: "sens1", cuando: 2000},
@@ -122,7 +122,7 @@ function main(){
         {id_sensor: "sens5", cuando: 8000}
     ]
     try{
-        let mediciones = leerMediciones("mediciones.json");
+        let mediciones = await leerMediciones("mediciones.json");
         probarListaSensores(mediciones, esperada);
         probarUltimaMedidaSensor(mediciones, "sens1", 2000);
         probarUltimaMedidaCadaSensor(mediciones, esperadas);

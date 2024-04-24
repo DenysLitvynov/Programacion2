@@ -1,0 +1,7 @@
+[
+    {"codigo": 101, "categoria": "bolígrafo", "precio": 2.5},
+    {"codigo": 102, "categoria": "lápiz", "precio": 1.5},
+    {"codigo": 103, "categoria": "borrador", "precio": 0.5},
+    {"codigo": 104, "categoria": "lápiz", "precio": 1.75},
+    {"codigo": 105, "categoria": "bolígrafo", "precio": 3.25}
+]

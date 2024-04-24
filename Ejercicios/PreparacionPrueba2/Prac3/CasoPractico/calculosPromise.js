@@ -106,10 +106,15 @@ function probarCalcularTemperaturaMinima(datos){
 //--------------------------------------------
 
 async function main(){
-    var datos = await leerFichero("datos.txt");
-    probarCalcularTemperaturaMedia(datos);
-    probarCalcularTemperaturaMaxima(datos);
-    probarCalcularTemperaturaMinima(datos);
+    try {
+        var datos = await leerFichero("datos.txt");
+        probarCalcularTemperaturaMedia(datos);
+        probarCalcularTemperaturaMaxima(datos);
+        probarCalcularTemperaturaMinima(datos);
+    }
+    catch (err) {
+        return err;
+    }
 }   
 main();
 

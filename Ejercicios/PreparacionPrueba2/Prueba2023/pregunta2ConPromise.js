@@ -6,7 +6,8 @@
 //
 
 //--------------------------------------------
-// nombreFichero: Texto -> leerFichero() -> contenidoFichero: JSON{[]}
+// nombreFichero: Texto -> leerFichero() -> 
+// contenidoFichero: [{falla: texto, ciudad: texto, categoria: texto}]
 //--------------------------------------------
 function leerFichero(nombreFichero){
     var fs = require("fs");
@@ -25,6 +26,26 @@ function leerFichero(nombreFichero){
 //--------------------------------------------
 
 //--------------------------------------------
+// nombreFichero: Texto, contenido:  [{falla: texto, ciudad: texto, categoria: texto}]
+//  -> escribirTexto() -> 0|Error
+//--------------------------------------------
+function escribirFichero(nombreFichero, contenido){
+    var fs = require("fs")
+    return new Promise(function (resolve, reject){
+        fs.writeFile(nombreFichero, JSON.stringify(contenido), function(err){
+            if(err){
+                reject("Hubo un error" + err)
+            } else {
+                resolve("Archivo guardado exitosamente" + nombreFichero)
+            }
+        })
+    })
+}//()
+
+//--------------------------------------------
+//--------------------------------------------
+
+//--------------------------------------------
 // fallas:JSON[{falla: texto, ciudad: texto, categoria: texto}], categoria: texto -> 
 // fallasEnCategoria() -> fallasCorresp:JSON[{falla: texto, ciudad: texto, categoria: texto}]
 //--------------------------------------------
@@ -35,7 +56,7 @@ function fallasEnCategoria(fallas, categoria){
         }
         return false;
     })
-    console.log(fallasCorresp);
+    //console.log(fallasCorresp);
     return fallasCorresp;
 }// ()
 
@@ -43,7 +64,7 @@ function fallasEnCategoria(fallas, categoria){
 function probarFallasEnCategoria(fallas,categoria){
     const resultado = fallasEnCategoria(fallas,categoria);
     for(let falles of resultado){
-        console.log(falles);
+        //console.log(falles);
         if(falles.categoria !== categoria){
             console.log("Esta mal")
         }
@@ -55,9 +76,16 @@ function probarFallasEnCategoria(fallas,categoria){
 //--------------------------------------------
 
 async function main(){
-    let fallas = await leerFichero("falles.json");
-    probarFallasEnCategoria(fallas, "primera");
+    try{
+        let fallas = await leerFichero("falles.json");
+        probarFallasEnCategoria(fallas, "primera");
+        let res = fallasEnCategoria(fallas, "primera");
+        await escribirFichero("resultado.json", res)
+    } catch(error) {
+        console.log(error);
+    }
 }
+main();
 
 //--------------------------------------------
 //--------------------------------------------

@@ -1,43 +1,21 @@
 //
-// Archivo: pregunta3ConPromise.js
+// Archivo: pregunta3.js
 // Descripción: -------
-// Fecha: 24/04/2024
+// Fecha: 23/04/2024
 // Nombre: Denys Litvynov
 //
 
 //--------------------------------------------
 // nombreFichero: Texto -> leerFichero() -> articulos: {[codigo: N, categoria: texto, precio: R]}
 //--------------------------------------------
-function leerFichero(nombreFichero){
-    var fs = require("fs")
-    return new Promise(function(resolve, reject){
-        fs.readFile(nombreFichero, "utf8", function(err, contenido){
-            if(err){
-                reject("hubo un error" + err)
-            } else {
-                resolve(JSON.parse(contenido))
-            }
-        })
-    })
-}//()
-
-//--------------------------------------------
-//--------------------------------------------
-
-//--------------------------------------------
-// nombreFichero: Texto, contenido:  articulos: {[codigo: N, categoria: texto, precio: R]}
-//  -> escribirTexto() -> 0|Error
-//--------------------------------------------
-function escribirFichero(nombreFichero, contenido){
-    var fs = require("fs")
-    return new Promise(function (resolve, reject){
-        fs.writeFile(nombreFichero, JSON.stringify(contenido), function(err){
-            if(err){
-                reject("Hubo un error" + err)
-            } else {
-                resolve("Archivo guardado exitosamente" + nombreFichero)
-            }
-        })
+function leerFichero(nombreFichero, callback){
+    var fs = require("fs");
+    fs.readFile(nombreFichero, "utf8", function(err, contenido){
+        if(err){
+            callback(null,err)
+        } else {
+            callback(JSON.parse(contenido), null)
+        }
     })
 }//()
 
@@ -75,17 +53,13 @@ function probarTotalCategoria(articulos, categoria, esperado){
 // main()
 //--------------------------------------------
 
-async function main(){
-    try{
-        let articulos = await leerFichero("articulos.json");
+leerFichero("articulos.json", function(articulos, err){
+    if(err){
+        console.log("Ha surgido un error")
+    } else {
         probarTotalCategoria(articulos, "lápiz", 3.25);
-        let resultado = totalCategoria(articulos,"lápiz");
-        await escribirFichero("resultado.json", resultado);
-    } catch(error) {
-        console.log("hubo un error" + error)
     }
-}
-main();
+})
 
 //--------------------------------------------
 //--------------------------------------------

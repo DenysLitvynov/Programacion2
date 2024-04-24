@@ -1,0 +1,62 @@
+Segundo examen 2023 Prog2
+
+Se tiene un fichero con la siguiente información:
+[
+    {
+        "id_sensor": "sens-1",
+        "medida": 2.3,
+        "cuando": 1000
+    },
+    {
+        "id_sensor": "sens-2" ¡"medida": 3.7,
+        "cuando": 1010
+    },
+    {
+        "id_sensor": "sens-3",
+        "medida": 8.7,
+        "cuando": 1012
+    },
+    {
+        "id_sensor": "sens-1",
+        "medida": 2.4,
+        "cuando": 1001
+    },
+    {
+        "id_sensor": "sens-2",
+        "medida": 3.8,
+        "cuando": 1020
+    },
+    {
+        "id_sensor": "sens-3",
+        "medida": -8.5,
+        "cuando": 1011
+    },
+    {
+        "id_sensor": "sens-1",
+        "medida": 2.5,
+        "cuando": 1002
+    },
+    {
+        "id_sensor": "sens-3",
+        "medida": -8.3,
+        "cuando": 1020
+    }
+]
+
+Se pretenede averiguar el instante (campo cuando) de la última medición de cada sensor. Para ello: 
+1. Diseña e implementa una función que lea el fichero en un objeto y se use de esta forma:
+          var datos = await leermediciones("mediciones.json")
+
+
+2.Diseña e implementa una función listaSensores() que averigue los nombres de los sensores (sin repeticiones) presentes en un array de mediciones. 
+La implementación debe usar reducir() obligatoriamente. Está permitido usar los métodos push e includes de los arrays
+
+
+3.Diseña e implementa una funcion ultimaMedidaSensor(), que devuelva el ínstante(un numero natural)
+en que un sensor tomó una media en una lista de mediciones determinada. La implementación debe usar reducir() obligatoriamente
+
+4. Diseña una funcion ultimaMedidaCadaSensor() que devuelva, a partir de una lista de mediciones, un array de objetos {id_sensor: Texto, cuando: N }
+para saber el instante de la última medición de cada sensor. Implementa esta funclón llamando a las funciones anteriores que sean necesarias y usando mapear().
+
+
+5.Escribe un test automático usando la biblioteca mocha para la función ultimaMedidaCadaSensor() usando los datos del fichero mediciones.json.

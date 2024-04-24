@@ -80,17 +80,20 @@ function probarUltimaMedidaSensor(mediciones, id_sensor, esperado){
 //--------------------------------------------
 // sensores:[texto] -> ultimaMedidaCadaSensor() -> ultimaDeCada:[{id_sensor: texto, cuando: N}]
 //--------------------------------------------
-function ultimaMedidaCadaSensor(sensores){
+function ultimaMedidaCadaSensor(mediciones){
+    let sensores = listaSensores(mediciones);
     let ultimaDeCada = sensores.map(function(elem){
-        elem = {id_sensor: elem.id_sensor, cuando: ultimaMedidaSensor(elem)}
-        return elem;
+        return {
+            "id_sensor": elem,
+            "cuando": ultimaMedidaSensor(mediciones, elem)
+        }
     })
     return ultimaDeCada;
 }// ()
 
 // Prueba automática para la función 
-function probarUltimaMedidaCadaSensor(sensores, esperadas){
-    const resultado = ultimaMedidaCadaSensor(sensores);
+function probarUltimaMedidaCadaSensor(mediciones, esperadas){
+    const resultado = ultimaMedidaCadaSensor(mediciones);
     console.log(resultado);
     for(let i = 0; i<resultado.length; i++){
         if(resultado[i].id_sensor !== esperadas[i].id_sensor || resultado[i].medida !== esperadas[i].medida){
@@ -111,11 +114,11 @@ function main(){
     let esperada = [ 'sens1', 'sens2', 'sens3', 'sens4', 'sens5' ];
     let esperadas = 
     [
-        {id_sensor: sens1, medida: 2.4},
-        {id_sensor: sens2, medida: 2.7},
-        {id_sensor: sens3, medida: 2.5},
-        {id_sensor: sens4, medida: 2.2},
-        {id_sensor: sens5, medida: -2.9}
+        {id_sensor: "sens1", cuando: 2000},
+        {id_sensor: "sens2", cuando: 4000},
+        {id_sensor: "sens3", cuando: 5000},
+        {id_sensor: "sens4", cuando: 7000},
+        {id_sensor: "sens5", cuando: 8000}
     ]
     leerMediciones("mediciones.json", function(mediciones,err){
         if(err){
@@ -123,8 +126,7 @@ function main(){
         } else {
             probarListaSensores(mediciones, esperada);
             probarUltimaMedidaSensor(mediciones, "sens1", 2000);
-            let sensores = listaSensores(mediciones);
-            probarUltimaMedidaCadaSensor(sensores, esperadas);
+            probarUltimaMedidaCadaSensor(mediciones, esperadas);
         }
     })
 }

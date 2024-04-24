@@ -25,6 +25,25 @@ function leerFichero(nombreFichero){
 //--------------------------------------------
 
 //--------------------------------------------
+// nombreFichero: Texto, contenido: Texto -> escribirTexto() -> 0 | Error
+//--------------------------------------------
+function escribirFichero(nombreFichero, contenido){
+    var fs = require("fs")
+    return new Promise(function (resolve, reject){
+        fs.writeFile(nombreFichero, contenido, function(err){
+            if(err){
+                reject("Hubo un error" + err)
+            } else {
+                resolve("Archivo guardado exitosamente: " + nombreFichero)
+            }
+        })
+    })
+}
+
+//--------------------------------------------
+//--------------------------------------------
+
+//--------------------------------------------
 // horario:{dia:[{asignatura: texto, horaDeInicio: texto}]}, asignatura: texto 
 // -> obtenerHorarioAsignatura() -> horarioAsignatura: {[dia: texto, hora: texto]}
 //--------------------------------------------
@@ -46,9 +65,17 @@ function obtenerHorarioAsignatura(horario, asignatura){
 }// ()
 
 // Prueba automática para la función 
-function probarObtenerHorarioAsignatura(horario, asignatura){
+function probarObtenerHorarioAsignatura(horario, asignatura, esperado){
     let resultado = obtenerHorarioAsignatura(horario,asignatura);
-    console.log(resultado);
+    for(let i = 0; i<resultado.length; i++){
+        if(resultado[i].dia !== esperado[i].dia){
+            console.log("Esta mal")
+        }
+        if(resultado[i].horaDeInicio !== esperado[i].horaDeInicio){
+            console.log("Esta mal 2")
+        }
+    }
+    return JSON.stringify(resultado)
 }
 
 //--------------------------------------------
@@ -56,8 +83,15 @@ function probarObtenerHorarioAsignatura(horario, asignatura){
 //--------------------------------------------
 
 async function main(){
-    var horario = await leerFichero("horario.json");
-    probarObtenerHorarioAsignatura(horario, "programación");
+    var esperado = [{"dia":"martes","horaDeInicio":"8:30"},{"dia":"viernes","horaDeInicio":"8:30"}]
+    try {
+        var horario = await leerFichero("horario.json");
+        var res = probarObtenerHorarioAsignatura(horario, "programación", esperado);
+        await escribirFichero("horarioProg.json", res);
+    }
+    catch (err) {
+        console.log(err + " sa liat prim ")
+    }
 }   
 main();
 
