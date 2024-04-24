@@ -1,0 +1,10 @@
+[
+    {"id_sensor": "sens1", "medida": 2.3, "cuando": 1000},
+    {"id_sensor": "sens1", "medida": 2.4, "cuando": 2000},
+    {"id_sensor": "sens2", "medida": -2.1, "cuando": 3000},
+    {"id_sensor": "sens2", "medida": 2.7, "cuando": 4000},
+    {"id_sensor": "sens3", "medida": 2.5, "cuando": 5000},
+    {"id_sensor": "sens4", "medida": 2.6, "cuando": 6000},
+    {"id_sensor": "sens4", "medida": 2.2, "cuando": 7000},
+    {"id_sensor": "sens5", "medida": -2.9, "cuando": 8000}
+]
