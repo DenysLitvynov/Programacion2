@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Matrículas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Aplicación de Matrículas</h1>
+        <h2>Ejercicio Final - Programación 2</h2>
+    </header>
+
+    <main>
+        <section id="insertarPersona">
+            <h3>Insertar Persona</h3>
+            <div id="divInsertarPersona">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+                <button type="submit">Insertar</button>
+            </div>
+        </section>
+
+        <section id="insertarAsignatura">
+            <h3>Insertar Asignatura</h3>
+            <div id="divInsertarAsignatura">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required>
+                <label for="nombreAsignatura">Nombre:</label>
+                <input type="text" id="nombreAsignatura" name="nombreAsignatura" required>
+                <button type="submit">Insertar</button>
+            </div>
+        </section>
+
+        <section id="realizarMatricula">
+            <h3>Realizar Matrícula</h3>
+            <div id="divRealizarMatricula">
+                <label for="dniMatricula">DNI Persona:</label>
+                <input type="text" id="dniMatricula" name="dniMatricula" required>
+                <label for="codigoMatricula">Código Asignatura:</label>
+                <input type="text" id="codigoMatricula" name="codigoMatricula" required>
+                <button type="submit">Matricular</button>
+            </div>
+        </section>
+
+        <section id="buscarPersona">
+            <h3>Buscar Persona</h3>
+            <div id="divBuscarPersona">
+                <label for="dniBuscar">DNI:</label>
+                <input type="text" id="dniBuscar" name="dniBuscar" required>
+                <button id="btn_buscar">Buscar</button>
+            </div>
+            <div id="resultadoBuscarPersona" class="resultado">Resultado: </div>
+        </section>
+
+        <section id="buscarAsignatura">
+            <h3>Buscar Asignatura</h3>
+            <div id="divBuscarAsignatura">
+                <label for="codigoBuscar">Código:</label>
+                <input type="text" id="codigoBuscar" name="codigoBuscar" required>
+                <button type="submit">Buscar</button>
+            </div>
+            <div id="resultadoBuscarAsignatura" class="resultado">Resultado: </div>
+        </section>
+
+        <section id="buscarMatricula">
+            <h3>Buscar Matrícula</h3>
+            <div id="divBuscarMatricula">
+                <label for="claveBuscar">Clave:</label>
+                <input type="text" id="claveBuscar" name="claveBuscar" required>
+                <button type="submit">Buscar</button>
+            </div>
+            <div id="resultadoBuscarMatricula" class="resultado">Resultado: </div>
+        </section>
+
+        <section id="obtenerAsignaturas">
+            <h3>Obtener Asignaturas por Apellidos</h3>
+            <div id="divObtenerAsignaturas">
+                <label for="apellidosBuscar">Apellidos:</label>
+                <input type="text" id="apellidosBuscar" name="apellidosBuscar" required>
+                <button type="submit">Obtener</button>
+            </div>
+            <div id="resultadoObtenerAsignaturas" class="resultado">Resultado: </div>
+        </section>
+
+        <section id="borrarDatos">
+            <h3>Borrar Datos</h3>
+            <div id="divBorrarDatos">
+                <label for="tablaBorrar">Tabla:</label>
+                <select id="tablaBorrar" name="tablaBorrar" required>
+                    <option value="persona">Persona</option>
+                    <option value="asignatura">Asignatura</option>
+                    <option value="Matricula">Matrícula</option>
+                </select>
+                <button id="btn_borrar" >Borrar</button>
+            </div>
+        </section>
+
+        <section id="borrarTodas">
+            <h3>Borrar Todas las Filas de Todas las Tablas</h3>
+            <div id="divBorrarTodas">
+                <button type="submit">Borrar Todas</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast"></div>
+
+    <footer>
+        <p>© 2024 Aplicación de Matrículas</p>
+    </footer>
+
+    <script type="module" src="./logicaFake/scripts.js"></script>
+</body>
+</html>

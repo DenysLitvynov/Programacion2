@@ -1,0 +1,149 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+header {
+    background-color: #f7df1e;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+header h2 {
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-around;
+}
+
+section {
+    flex: 1 1 300px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #000000;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+}
+
+div label {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+div input, div select, div button {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+div button {
+    background-color: #f7df1e;
+    color: #000000;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+div button:hover {
+    background-color: #f0d700;
+}
+
+.resultado {
+    margin-top: -10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#toast {
+    visibility: hidden;
+    max-width: 50%;
+    margin: auto;
+    background-color: rgba(247, 223, 30, 0.9); /* Amarillo semitransparente */
+    color: #000000; /* Letras negras */
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    font-size: 17px;
+    transition: visibility 0.5s, opacity 0.5s linear;
+}
+
+#toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+@media (max-width: 768px) {
+    .menu-list {
+        display: none;
+        flex-direction: column;
+    }
+
+    .menu-list li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #menu-toggle:checked + .menu-icon + .menu-list {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-list li a {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 769px) {
+    main {
+        justify-content: center;
+    }
+
+    section {
+        flex: 1 1 calc(33.333% - 20px);
+        margin: 10px;
+    }
+}
