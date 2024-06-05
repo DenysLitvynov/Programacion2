@@ -32,7 +32,7 @@ async function main() {
     // Crear una instancia de Express
     var app = express();
     // Configurar el middleware para analizar cuerpos de solicitud JSON
-    app.use(bodyParser.text({ type: 'application/json' }));
+    app.use(bodyParser.json());
     // Servir archivos estáticos desde la carpeta 'ux'
     app.use(express.static(path.join(__dirname, '..', 'ux')));
     // Cargar las reglas REST

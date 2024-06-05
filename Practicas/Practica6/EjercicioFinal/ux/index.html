@@ -24,9 +24,9 @@
                 <input type="text" id="nombre" name="nombre" required>
                 <label for="apellidos">Apellidos:</label>
                 <input type="text" id="apellidos" name="apellidos" required>
-                <button type="submit">Insertar</button>
+                <button id="btn_insertar_pers" >Insertar</button>
             </div>
-        </section>
+        </section>        
 
         <section id="insertarAsignatura">
             <h3>Insertar Asignatura</h3>
@@ -35,7 +35,7 @@
                 <input type="text" id="codigo" name="codigo" required>
                 <label for="nombreAsignatura">Nombre:</label>
                 <input type="text" id="nombreAsignatura" name="nombreAsignatura" required>
-                <button type="submit">Insertar</button>
+                <button id="btn_insertar_asig" >Insertar</button>
             </div>
         </section>
 
@@ -46,7 +46,7 @@
                 <input type="text" id="dniMatricula" name="dniMatricula" required>
                 <label for="codigoMatricula">Código Asignatura:</label>
                 <input type="text" id="codigoMatricula" name="codigoMatricula" required>
-                <button type="submit">Matricular</button>
+                <button id="btn_insertar_mat" >Matricular</button>
             </div>
         </section>
 
@@ -55,7 +55,7 @@
             <div id="divBuscarPersona">
                 <label for="dniBuscar">DNI:</label>
                 <input type="text" id="dniBuscar" name="dniBuscar" required>
-                <button id="btn_buscar">Buscar</button>
+                <button id="btn_buscar_pers">Buscar</button>
             </div>
             <div id="resultadoBuscarPersona" class="resultado">Resultado: </div>
         </section>
@@ -65,19 +65,9 @@
             <div id="divBuscarAsignatura">
                 <label for="codigoBuscar">Código:</label>
                 <input type="text" id="codigoBuscar" name="codigoBuscar" required>
-                <button type="submit">Buscar</button>
+                <button id="btn_buscar_asig">Buscar</button>
             </div>
             <div id="resultadoBuscarAsignatura" class="resultado">Resultado: </div>
-        </section>
-
-        <section id="buscarMatricula">
-            <h3>Buscar Matrícula</h3>
-            <div id="divBuscarMatricula">
-                <label for="claveBuscar">Clave:</label>
-                <input type="text" id="claveBuscar" name="claveBuscar" required>
-                <button type="submit">Buscar</button>
-            </div>
-            <div id="resultadoBuscarMatricula" class="resultado">Resultado: </div>
         </section>
 
         <section id="obtenerAsignaturas">
@@ -85,10 +75,10 @@
             <div id="divObtenerAsignaturas">
                 <label for="apellidosBuscar">Apellidos:</label>
                 <input type="text" id="apellidosBuscar" name="apellidosBuscar" required>
-                <button type="submit">Obtener</button>
+                <button id="btn_obtener_asig">Obtener</button>
             </div>
             <div id="resultadoObtenerAsignaturas" class="resultado">Resultado: </div>
-        </section>
+        </section>        
 
         <section id="borrarDatos">
             <h3>Borrar Datos</h3>
@@ -106,9 +96,10 @@
         <section id="borrarTodas">
             <h3>Borrar Todas las Filas de Todas las Tablas</h3>
             <div id="divBorrarTodas">
-                <button type="submit">Borrar Todas</button>
+                <button id="btn_borrar_todas">Borrar Todas</button>
             </div>
         </section>
+        
     </main>
 
     <div id="toast"></div>

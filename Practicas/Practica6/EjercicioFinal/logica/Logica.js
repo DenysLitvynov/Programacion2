@@ -35,27 +35,67 @@ module.exports = class Logica {
         })
     }// ()
 
-    // .................................................................
+    // ----------------------------------------------
     // borrarFilasDeTodasLasTablas() -->
-    //
-    // borra todas las filas de todas las tablas, no devuelve nada
-    // .................................................................
+    // ----------------------------------------------
     async borrarFilasDeTodasLasTablas() {
         await this.borrarFilasDe( "Matricula" )
         await this.borrarFilasDe( "Asignatura" )
         await this.borrarFilasDe( "Persona" )
     } // ()
 
+    // ----------------------------------------------
+    // datos:{dni:Texto, nombre:Texto: apellidos: Texto}
+    // -->
+    // insertarPersona() 
+    // ----------------------------------------------
+    insertarPersona( datos ){
+        var textoSQL = 'insert into Persona values ( $dni, $nombre, $apellidos );'
+        var valoresParaSQL = { $dni: datos.dni, $nombre: datos.nombre, $apellidos: datos.apellidos }
+        return new Promise( (resolve, reject) => {
+            this.laConexion.run( textoSQL, valoresParaSQL, function( err ) {
+                ( err ? reject(err) : resolve() )
+            })
+        })
+    }//()
+
     // .................................................................
+    // asignatura:{codigo:Texto, nombre:Texto}
+    // -->
+    // insertarAsignatura() -->
+    // .................................................................
+    insertarAsignatura(asignatura){
+        var textoSQL = 'insert into Asignatura values( $codigo, $nombre);'
+        var valoresParaSQL = {$codigo: asignatura.codigo, $nombre: asignatura.nombre};
+        return new Promise((resolve, reject) => {
+            this.laConexion.run( textoSQL, valoresParaSQL, function(err) {
+                (err ? reject(err) : resolve())
+            })
+        })
+    }//()
+
+    // .................................................................
+    // matricula:{dni:Texto, codigo:Texto}
+    // -->
+    // realizarMatricula() -->
+    // .................................................................
+    realizarMatricula(matricula){
+        var textoSQL = 'insert into Matricula values($dni, $codigo);'
+        var valoresParaSQL = {$dni: matricula.dni, $codigo: matricula.codigo};
+        return new Promise((resolve, reject) => {
+            this.laConexion.run( textoSQL, valoresParaSQL, function(err){
+                (err ? reject(err) : resolve())
+            })
+        })
+    }//()
+
+    // ----------------------------------------------
     // dni:Texto
     // -->
     // buscarPersonaPorDNI() <--
     // <--
     // {dni:Texto, nombre:Texto: apellidos:Texto}
-    // 
-    // recibe el DNI de una persona y en el caso que este en la tabla devuelve todos sus datos
-    // si no esta devuelve un error con una promesa
-    // .................................................................
+    // ----------------------------------------------
     buscarPersonaConDNI( dni ) {
         var textoSQL = "select * from Persona where dni=$dni";
         var valoresParaSQL = { $dni: dni }
@@ -64,6 +104,46 @@ module.exports = class Logica {
                 ( err ? rechazar(err) : resolver(res) )
             })
         })
+    } // ()
+
+    // ----------------------------------------------
+    // codigo:Texto
+    // -->
+    // buscarAsignaturaPorCodigo() <--
+    // <--
+    // {codigo:Texto, nombre:Texto}
+    // ----------------------------------------------
+    buscarAsignaturaPorCodigo( codigo ) {
+        var textoSQL = "select * from Asignatura where codigo=$codigo";
+        var valoresParaSQL = {$codigo: codigo}
+        return new Promise((resolve, reject) => {
+            this.laConexion.all(textoSQL, valoresParaSQL,(err, res) => {
+                (err ? reject(err) : resolve(res) )
+            })
+        })
+    }// ()
+
+    // ----------------------------------------------
+    // apellidos: Texto
+    // -->
+    // obtenerAsignaturas() <--
+    // <--
+    // codigos:[Texto]
+    // ----------------------------------------------
+    obtenerAsignaturasPorApellidos(apellidos) {
+        var textoSQL = "select Matricula.codigo from Matricula inner join Persona on Matricula.dni = Persona.dni where Persona.apellidos = $apellidos";
+        var valoresParaSQL = { $apellidos: apellidos };
+        return new Promise((resolver, rechazar) => {
+            this.laConexion.all(textoSQL, valoresParaSQL, (err, res) => {
+                if (err) {
+                    rechazar(err);
+                } else {
+                    // Extraer solo los códigos de las asignaturas de los resultados.
+                    var codigos = res.map(row => row.codigo);
+                    resolver(codigos);
+                }
+            });
+        });
     } // ()
 
     // ----------------------------------------------

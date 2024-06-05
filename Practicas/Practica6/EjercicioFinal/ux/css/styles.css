@@ -111,8 +111,6 @@ footer {
     opacity: 1;
 }
 
-
-
 @media (max-width: 768px) {
     .menu-list {
         display: none;
